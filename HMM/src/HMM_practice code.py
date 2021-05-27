@@ -10,7 +10,7 @@ src_dir = os.path.abspath(pathname)
 os.chdir(src_dir)
 # The directory to the main HMM file
 HMM_dir = os.chdir("..")
-print(HMM_dir)
+print(src_dir)
 
 #Emission Matrix
 EmissionMatrix = pd.read_csv(os.path.join(HMM_dir,'data','raw','EmissionMatrix.txt'),sep ='/t', header= None)
