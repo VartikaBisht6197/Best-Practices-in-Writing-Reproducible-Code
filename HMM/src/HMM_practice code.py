@@ -12,7 +12,7 @@ src_dir = os.path.abspath(pathname)
 HMM_dir = Path(src_dir).parent
 
 #Emission Matrix
-EmissionMatrix = pd.read_csv(os.path.join(HMM_dir,'data','raw','EmissionMatrix.txt'),sep ='/t', header= None)
+EmissionMatrix = pd.read_csv(os.path.join(HMM_dir,'data','raw','EmissionMatrix.txt'),sep =' ', header= None)
 EmissionMatrix = EmissionMatrix.to_numpy()
 
 #Hidden State legends Matrix
