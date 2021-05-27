@@ -107,11 +107,11 @@ def Viterbi(VMat,m,n):
 
 
 str1_path = os.path.join(HMM_dir,'data','raw','string1.txt')
-with open('data.txt', 'r') as file:
+with open(str1_path, 'r') as file:
     str1 = file.read()
 
 str2_path = os.path.join(HMM_dir,'data','raw','string2.txt')
-with open('data.txt', 'r') as file:
+with open(str2_path, 'r') as file:
     str2 = file.read()
 
 #Observation Matrix according to str1 and str2 
