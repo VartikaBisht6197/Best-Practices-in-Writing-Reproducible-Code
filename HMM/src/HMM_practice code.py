@@ -20,7 +20,7 @@ EmissionMatrix = EmissionMatrix.to_numpy()
 HiddenMatrix = {0:'I' , 1:'D' , 2:'M' , 3:'Mi'} 
 
 #Prior Matrix
-StartingProbability = np.add(EmissionMatrix[0],EmissionMatrix[1])*0.5
+StartingProbability = np.add(EmissionMatrix[0],EmissionMatrix[1])
 print(StartingProbability)
 
    
