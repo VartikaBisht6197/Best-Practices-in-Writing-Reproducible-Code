@@ -10,7 +10,6 @@ pathname = os.path.dirname(sys.argv[0])
 src_dir = os.path.abspath(pathname)
 # The directory to the main HMM file
 HMM_dir = Path(src_dir).parent
-print(HMM_dir)
 
 #Emission Matrix
 EmissionMatrix = pd.read_csv(os.path.join(HMM_dir,'data','raw','EmissionMatrix.txt'),sep ='/t', header= None)
@@ -20,7 +19,7 @@ EmissionMatrix = EmissionMatrix.to_numpy()
 HiddenMatrix = {0:'I' , 1:'D' , 2:'M' , 3:'Mi'} 
 
 #Prior Matrix
-StartingProbability = np.add(EmissionMatrix[0],EmissionMatrix[1])
+StartingProbability = np.add(np.array(EmissionMatrix[0]),np.array(EmissionMatrix[1]))
 print(StartingProbability)
 
    
