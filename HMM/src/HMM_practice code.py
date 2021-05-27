@@ -13,6 +13,7 @@ print(HMM_dir)
 
 #Emission Matrix
 EmissionMatrix = pd.read_csv(os.path.join(HMM_dir,'data','raw','EmissionMatrix.txt'),sep ='/t', header= None)
+print(EmissionMatrix)
 
 #Hidden State legends Matrix
 HiddenMatrix = {0:'I' , 1:'D' , 2:'M' , 3:'Mi'} 
