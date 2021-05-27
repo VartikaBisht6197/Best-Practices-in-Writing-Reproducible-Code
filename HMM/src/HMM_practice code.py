@@ -1,5 +1,19 @@
+import pandas as pd
+import os
+import sys
+
+# Path to the script (can be script name)
+pathname = os.path.dirname(sys.argv[0])
+# Absolute path to the script
+src_dir = os.path.abspath(pathname)
+# Change current directory to that of the script
+os.chdir(src_dir)
+# The directory to the main HMM file
+HMM_dir = os.chdir("..")
+
+
 #Emission Matrix
-EmissionMatrix = [ [0.04 , 0.04, 0.88, 0.04] , [0.40, 0.40, 0.04, 0.16] ]
+EmissionMatrix = pd.read_csv(os.path.join(HMM_dir,'data','raw','EmissionMatrix.txt'),sep ='/t', header= None)
 
 #Hidden State legends Matrix
 HiddenMatrix = {0:'I' , 1:'D' , 2:'M' , 3:'Mi'} 
