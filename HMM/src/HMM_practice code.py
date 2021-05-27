@@ -130,7 +130,6 @@ FillMat(VMat , str1,str2)
 #Print the path
 outF = open(os.path.join(HMM_dir,'results',"HMM_output.txt"), "w")
 for line in Viterbi(VMat, len(str1) , len(str2)):
-  outF.write(line)
-  outF.write("\n")
+  print(Viterbi(VMat, len(str1) , len(str2)))
 outF.close()
 
