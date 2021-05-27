@@ -33,7 +33,7 @@ for i in range(4):
 
 # Given two lists A and B, it multiplies respective elements of the list and returns a list AB (Specifically for [I D
 # M MI] probability multiplication)
-def MultiEle(A, B):
+def MultiEle(B, A):
     AB = []
     # As all the multiplication is needed while calculating the [I D M MI] probability so the number of elements in
     # each list is 4
@@ -46,14 +46,16 @@ def MultiEle(A, B):
 def FillMat(V_Mat, str1, str2):
     for let1 in range(1, len(str1)):
         for let2 in range(1, len(str2)):
-            if (str1[let1] == str2[let2]):
+            if str1[let1] == str2[let2]:
                 simi = 0
             else:
                 simi = 1
             V_Mat[let1][let2][0] = EmissionMatrix[simi][0] * max(MultiEle(V_Mat[let1][let2 - 1], TransitionMatrix[0]))
             V_Mat[let1][let2][1] = EmissionMatrix[simi][1] * max(MultiEle(V_Mat[let1 - 1][let2], TransitionMatrix[1]))
-            V_Mat[let1][let2][2] = EmissionMatrix[simi][2] * max(MultiEle(V_Mat[let1 - 1][let2 - 1], TransitionMatrix[2]))
-            V_Mat[let1][let2][3] = EmissionMatrix[simi][3] * max(MultiEle(V_Mat[let1 - 1][let2 - 1], TransitionMatrix[3]))
+            V_Mat[let1][let2][2] = EmissionMatrix[simi][2] * max(
+                MultiEle(V_Mat[let1 - 1][let2 - 1], TransitionMatrix[2]))
+            V_Mat[let1][let2][3] = EmissionMatrix[simi][3] * max(
+                MultiEle(V_Mat[let1 - 1][let2 - 1], TransitionMatrix[3]))
     return V_Mat
 
 
@@ -61,7 +63,7 @@ def FillMat(V_Mat, str1, str2):
 def FillInsDel(VMat, l1, l2):
     v_mat_count = 1
     for let in l2[1:]:
-        if (l1[0] == let):
+        if l1[0] == let:
             VMat[0][v_mat_count][0] = max(MultiEle(EmissionMatrix[0], VMat[0][v_mat_count - 1]))
         else:
             VMat[0][v_mat_count][0] = max(MultiEle(EmissionMatrix[1], VMat[0][v_mat_count - 1]))
@@ -105,7 +107,7 @@ def Viterbi(VMat, m, n):
     if h == 0:
         for u in range(g - 1, -1, -1):
             path.append([g, h, max_at_each[g][h][1]])
-    return (path)
+    return path
 
 
 str1_path = os.path.join(HMM_dir, 'data', 'raw', 'string1.txt')
@@ -130,7 +132,7 @@ FillInsDel(VMat, str1, str2)
 FillMat(VMat, str1, str2)
 
 # Print the path
-#TODO : add pictorial representation for the path formed.
+# TODO : add pictorial representation for the path formed.
 original_stdout = sys.stdout
 with open(os.path.join(HMM_dir, 'results', 'output', "HMM_output.txt"), "w")  as f:
     sys.stdout = f  # Change the standard output to the file we created.
