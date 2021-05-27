@@ -27,6 +27,8 @@ for i in range(4):
     sp = sp*0.5
     StartingProbability.append(sp)
 
+print(StartingProbability)
+
    
 #Transition Matrix
 TransitionMatrix = []
