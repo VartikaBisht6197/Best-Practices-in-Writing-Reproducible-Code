@@ -20,9 +20,7 @@ HiddenMatrix = {0:'I' , 1:'D' , 2:'M' , 3:'Mi'}
 
 #Prior Matrix
 StartingProbability = np.add(np.array(EmissionMatrix[0]),np.array(EmissionMatrix[1]))
-print(StartingProbability)
 
-   
 #Transition Matrix
 TransitionMatrix = []
 for i in range(4):
@@ -108,8 +106,13 @@ def Viterbi(VMat,m,n):
     return(path)
 
 
-str1 = 'ATTACATTAC' #input1
-str2 = 'GATTACA' #input2
+str1_path = os.path.join(HMM_dir,'data','raw','string1.txt')
+with open('data.txt', 'r') as file:
+    str1 = file.read()
+
+str2_path = os.path.join(HMM_dir,'data','raw','string2.txt')
+with open('data.txt', 'r') as file:
+    str2 = file.read()
 
 #Observation Matrix according to str1 and str2 
 VMat = [[[0 for z in range(4)]for y in range(len(str2))] for x in range(len(str1))]
@@ -125,4 +128,9 @@ FillInsDel(VMat,str1,str2)
 FillMat(VMat , str1,str2)
 
 #Print the path
-print(Viterbi(VMat, len(str1) , len(str2)))
+outF = open(os.path.join(HMM_dir,'results',"HMM_output.txt"), "w")
+for line in Viterbi(VMat, len(str1) , len(str2)):
+  outF.write(line)
+  outF.write("\n")
+outF.close()
+
