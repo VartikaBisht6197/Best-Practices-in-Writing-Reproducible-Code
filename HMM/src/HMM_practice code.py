@@ -1,16 +1,15 @@
 import pandas as pd
 import os
 import sys
+from pathlib import Path
 
 # Path to the script (can be script name)
 pathname = os.path.dirname(sys.argv[0])
 # Absolute path to the script
 src_dir = os.path.abspath(pathname)
-# Change current directory to that of the script
-os.chdir(src_dir)
 # The directory to the main HMM file
-HMM_dir = os.chdir("..")
-print(src_dir)
+HMM_dir = Path(src_dir).parent
+print(HMM_dir)
 
 #Emission Matrix
 EmissionMatrix = pd.read_csv(os.path.join(HMM_dir,'data','raw','EmissionMatrix.txt'),sep ='/t', header= None)
