@@ -128,8 +128,6 @@ FillInsDel(VMat,str1,str2)
 FillMat(VMat , str1,str2)
 
 #Print the path
-outF = open(os.path.join(HMM_dir,'results','output',"HMM_output.txt"), "w")
-with outF as file:
-  print(Viterbi(VMat, len(str1) , len(str2)))
-file.close()
+with open(os.path.join(HMM_dir,'results','output',"HMM_output.txt"), "w") as out_file:
+    out_file.writelines(Viterbi(VMat, len(str1) , len(str2)))
 
