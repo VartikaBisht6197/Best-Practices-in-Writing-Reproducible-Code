@@ -2,6 +2,7 @@ import pandas as pd
 import os
 import sys
 from pathlib import Path
+import numpy as np
 
 # Path to the script (can be script name)
 pathname = os.path.dirname(sys.argv[0])
@@ -13,6 +14,7 @@ print(HMM_dir)
 
 #Emission Matrix
 EmissionMatrix = pd.read_csv(os.path.join(HMM_dir,'data','raw','EmissionMatrix.txt'),sep ='/t', header= None)
+EmissionMatrix = np.array(EmissionMatrix)
 print(EmissionMatrix)
 
 #Hidden State legends Matrix
