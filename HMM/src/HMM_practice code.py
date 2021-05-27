@@ -22,8 +22,7 @@ HiddenMatrix = {0:'I' , 1:'D' , 2:'M' , 3:'Mi'}
 #Prior Matrix
 StartingProbability = []
 for i in range(4):
-    print(EmissionMatrix[0][i] + EmissionMatrix[1][i])
-    sp = (EmissionMatrix[0][i] + EmissionMatrix[1][i])*0.5
+    sp = (np.array(EmissionMatrix[0][i] + EmissionMatrix[1][i]))*0.5
     StartingProbability.append(sp)
 
    
