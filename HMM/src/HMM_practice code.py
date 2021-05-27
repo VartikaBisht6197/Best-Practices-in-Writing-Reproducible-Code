@@ -34,6 +34,8 @@ for i in range(4):
 # Given two lists A and B, it multiplies respective elements of the list and returns a list AB (Specifically for [I D
 # M MI] probability multiplication)
 def MultiEle(B, A):
+    if len(A) == 0 or len(B) == 0:
+        raise("Emty list provided. Something wrong with the input string")
     AB = []
     # As all the multiplication is needed while calculating the [I D M MI] probability so the number of elements in
     # each list is 4
