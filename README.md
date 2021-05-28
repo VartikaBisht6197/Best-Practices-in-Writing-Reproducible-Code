@@ -9,3 +9,12 @@ Hidden Markov models (HMMs) are a formal foundation for making probabilistic mod
 A hidden Markov model (HMM) is a probabilistic model of a multiple sequence alignment (msa) of proteins. In the model, each column of symbols in the alignment is represented by a frequency distribution of the symbols (called a "state"), and insertions and deletions are represented by other states. One moves through the model along a particular path from state to state in a Markov chain (i.e., random choice of next move), trying to match a given sequence. The next matching symbol is chosen from each state, recording its probability (frequency) and also the probability of going to that state from a previous one (the transition probability). State and transition probabilities are multiplied to obtain a probability of the given sequence. The hidden nature of the HMM is due to the lack of information about the value of a specific state, which is instead represented by a probability distribution over all possible values. This article discusses the advantages and disadvantages of HMMs in msa and presents algorithms for calculating an HMM and the conditions for producing the best HMM.
 
 ![687474703a2f2f6373652d77696b692e756e6c2e6564752f77696b692f696d616765732f652f65662f50726f66696c65484d4d2e676966](https://user-images.githubusercontent.com/53393505/119949430-7eab2d80-bfb7-11eb-9d76-0355b14e91bd.gif)
+
+
+## LICENSE
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/><br />
+ Everyone is permitted to copy and distribute verbatim copies<br />
+ of this license document, but changing it is not allowed.<br />
