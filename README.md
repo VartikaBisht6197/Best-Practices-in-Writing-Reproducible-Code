@@ -12,9 +12,10 @@ A hidden Markov model (HMM) is a probabilistic model of a multiple sequence alig
 
 
 ## LICENSE
-
-                                                     GNU GENERAL PUBLIC LICENSE
-                                                       Version 3, 29 June 2007
+<p align="center">
+                                                     GNU GENERAL PUBLIC LICENSE<br/ >
+                                                       Version 3, 29 June 2007<br/ >
+ </p>
 <p align="center">
  Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/><br />
  Everyone is permitted to copy and distribute verbatim copies<br />
