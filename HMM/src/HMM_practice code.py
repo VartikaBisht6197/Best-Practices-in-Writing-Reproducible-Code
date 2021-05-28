@@ -32,21 +32,35 @@ for i in range(4):
     TransitionMatrix.append(TransitionMatrixRow)
 
 
-# Given two lists A and B, it multiplies respective elements of the list and returns a list AB (Specifically for [I D
-# M MI] probability multiplication)
-def MultiEle(B, A):
+
+def MultiEle(A, B):
+    '''
+    Element wise multiplication
+    Given two lists A and B, it multiplies respective elements of the list
+    and returns a list AB (Specifically for [I D M MI] probability multiplication).
+    As all the multiplication is needed while calculating the [I D M MI] probability
+    so the number of elements in each list is 4
+    :param A: the seconf list of elements
+    :param B: the first list of elements
+    :return: element wise multiplied list
+    '''
     if len(A) == 0 or len(B) == 0:
         raise("Emty list provided. Something wrong with the input string")
     AB = []
-    # As all the multiplication is needed while calculating the [I D M MI] probability so the number of elements in
-    # each list is 4
+    #
     for a in range(4):
         AB.append(A[a] * B[a])
     return AB
 
 
-# Fills in the Observation Matrix. It take VMat after FillInsDel as an input and returns the Filled Matrix
 def FillMat(V_Mat, str1, str2):
+    '''
+    Fills in the Observation Matrix. It take VMat after FillInsDel as an input and returns the Filled Matrix
+    :param V_Mat: matrix after FillInsDel
+    :param str1: first string (base sequence)
+    :param str2: second string (base sequence)
+    :return: Filled matrix
+    '''
     for let1 in range(1, len(str1)):
         for let2 in range(1, len(str2)):
             if str1[let1] == str2[let2]:
@@ -62,8 +76,14 @@ def FillMat(V_Mat, str1, str2):
     return V_Mat
 
 
-# Fills the first row for Insertion and first column for deletion
 def FillInsDel(VMat, l1, l2):
+    '''
+    Fills the first row for Insertion and first column for deletion
+    :param VMat: iniitial matrix ( empty )
+    :param l1: length of first base sequence
+    :param l2: length of second base sequence
+    :return: matrix
+    '''
     v_mat_count = 1
     for let in l2[1:]:
         if l1[0] == let:
@@ -81,8 +101,14 @@ def FillInsDel(VMat, l1, l2):
     return VMat
 
 
-# Given VMat filled as an Input, it returns the most probable path
 def Viterbi(VMat, m, n):
+    '''
+    Given VMat filled as an Input, it returns the most probable path
+    :param VMat: initial matrix
+    :param m: length of string 1
+    :param n: length of string 2
+    :return: best path
+    '''
     path = []
     max_at_each = [[[0 for z in range(2)] for y in range(n)] for x in range(m)]
     for i in range(m):
